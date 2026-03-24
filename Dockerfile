@@ -1,6 +1,5 @@
-FROM telegrammessenger/proxy:latest
+FROM seriyps/mtproto-proxy:latest
 
 ENV PORT=8443
 
-# Запускаем без указания секрета
-CMD /usr/local/bin/mtproto-proxy -p ${PORT} --fake-tls
+CMD mtproto-proxy -p ${PORT} --fake-tls
