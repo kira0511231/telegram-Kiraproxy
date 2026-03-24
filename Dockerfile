@@ -1,18 +1,11 @@
-FROM v2fly/v2fly-core:latest
-
-ENV PORT=8080
-
-# Создаём конфиг для MTProto
-RUN cat > /etc/v2ray/config.json <<EOF
-{
-  "inbounds": [{
-    "port": ${PORT},
-    "protocol": "mtproto",
-    "settings": {
-      "users": [{"secret": "auto"}]
-    }
-  }]
-}
-EOF
-
-CMD ["run", "-c", "/etc/v2ray/config.json"]
+services:
+  mtproto:
+    container_name: mtproto-proxy
+    image: ghcr.io/codinv/mtproto
+    restart: unless-stopped
+    ports:
+      - 8443:8443
+    environment:
+      - SECRET=auto
+      - PORT=8443
+      - WORKERS=2
