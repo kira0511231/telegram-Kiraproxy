@@ -1,5 +1,5 @@
-FROM seriyps/mtproto-proxy:latest
+FROM quay.io/xtrime-ru/telegram-mtproto-proxy:latest
 
 ENV PORT=8080
 
-CMD /usr/local/bin/mtproto-proxy -p 8080 --fake-tls
+CMD /usr/bin/mtproto-proxy -p ${PORT} --fake-tls
