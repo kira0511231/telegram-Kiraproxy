@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk add --no-cache mtproto-proxy
+RUN apk update && apk add --no-cache mtproto-proxy
 
 ENV PORT=8080
 
